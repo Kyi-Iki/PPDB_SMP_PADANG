@@ -1,0 +1,401 @@
+/**
+ * File: assets/css/siswa.css
+ * Deskripsi: Stylesheet khusus untuk halaman siswa
+ */
+
+/* =====================================================
+   VARIABLES
+   ===================================================== */
+:root {
+    --primary-color: #667eea;
+    --primary-dark: #5a67d8;
+    --secondary-color: #764ba2;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --info-color: #17a2b8;
+    --light-bg: #f5f7fa;
+    --card-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    --card-radius: 15px;
+}
+
+/* =====================================================
+   GLOBAL STYLES
+   ===================================================== */
+* {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background: var(--light-bg);
+    min-height: 100vh;
+}
+
+/* =====================================================
+   CARDS
+   ===================================================== */
+.info-card,
+.stat-card,
+.status-card {
+    background: white;
+    border-radius: var(--card-radius);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;
+}
+
+.info-card:hover,
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* =====================================================
+   STAT CARDS
+   ===================================================== */
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin: 0 auto 1rem;
+}
+
+.stat-icon.primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+}
+
+.stat-icon.success {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    color: white;
+}
+
+.stat-icon.warning {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+}
+
+.stat-icon.info {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+}
+
+/* =====================================================
+   BUTTONS
+   ===================================================== */
+.btn-primary-gradient {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border: none;
+    color: white;
+    transition: all 0.3s;
+}
+
+.btn-primary-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+    color: white;
+}
+
+/* =====================================================
+   SIDEBAR SISWA
+   ===================================================== */
+.siswa-sidebar {
+    background: linear-gradient(180deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border-radius: var(--card-radius);
+    padding: 1.5rem;
+    color: white;
+}
+
+.siswa-sidebar .sidebar-header {
+    text-align: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 1rem;
+}
+
+.siswa-sidebar .sidebar-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 1rem;
+}
+
+.siswa-sidebar .menu-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    border-radius: 10px;
+    margin-bottom: 0.25rem;
+    transition: all 0.2s;
+}
+
+.siswa-sidebar .menu-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+.siswa-sidebar .menu-item.active {
+    background: rgba(255, 255, 255, 0.25);
+    color: white;
+    font-weight: 600;
+}
+
+.siswa-sidebar .menu-item i {
+    width: 24px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+/* =====================================================
+   PROGRESS BAR
+   ===================================================== */
+.progress-step {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.progress-step::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #e9ecef;
+    z-index: 0;
+}
+
+.progress-step .step {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    flex: 1;
+}
+
+.progress-step .step-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #e9ecef;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.5rem;
+    transition: all 0.3s;
+}
+
+.progress-step .step.completed .step-icon {
+    background: var(--success-color);
+    color: white;
+}
+
+.progress-step .step.active .step-icon {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.3);
+}
+
+.progress-step .step-label {
+    font-size: 0.75rem;
+    color: #6c757d;
+}
+
+.progress-step .step.completed .step-label,
+.progress-step .step.active .step-label {
+    color: #333;
+    font-weight: 600;
+}
+
+/* =====================================================
+   DOCUMENT CARDS
+   ===================================================== */
+.doc-card {
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.2s;
+}
+
+.doc-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.doc-card.valid {
+    border-left: 4px solid var(--success-color);
+}
+
+.doc-card.pending {
+    border-left: 4px solid var(--warning-color);
+}
+
+.doc-card.invalid {
+    border-left: 4px solid var(--danger-color);
+}
+
+.doc-preview {
+    max-width: 100%;
+    max-height: 150px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* =====================================================
+   TIMELINE
+   ===================================================== */
+.timeline-item {
+    position: relative;
+    padding-left: 2rem;
+    padding-bottom: 1.5rem;
+    border-left: 2px solid #e9ecef;
+}
+
+.timeline-item:last-child {
+    border-left: 2px solid transparent;
+    padding-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -8px;
+    top: 0;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--primary-color);
+}
+
+.timeline-dot.active {
+    background: var(--success-color);
+}
+
+.timeline-dot.pending {
+    background: #6c757d;
+}
+
+/* =====================================================
+   NOTIFICATION CARDS
+   ===================================================== */
+.notif-card {
+    background: white;
+    border-radius: var(--card-radius);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--card-shadow);
+    border-left: 4px solid transparent;
+    transition: all 0.2s;
+}
+
+.notif-card:hover {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transform: translateX(5px);
+}
+
+.notif-card.success {
+    border-left-color: var(--success-color);
+}
+
+.notif-card.warning {
+    border-left-color: var(--warning-color);
+}
+
+.notif-card.danger {
+    border-left-color: var(--danger-color);
+}
+
+.notif-card.info {
+    border-left-color: var(--info-color);
+}
+
+.notif-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    margin-right: 1rem;
+}
+
+/* =====================================================
+   FORM STYLES
+   ===================================================== */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+
+.form-label {
+    font-weight: 500;
+    color: #495057;
+}
+
+/* =====================================================
+   UTILITIES
+   ===================================================== */
+.gradient-text {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* =====================================================
+   PRINT STYLES
+   ===================================================== */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+    }
+
+    .card,
+    .info-card {
+        box-shadow: none !important;
+    }
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+@media (max-width: 768px) {
+    .siswa-sidebar {
+        margin-bottom: 1rem;
+    }
+
+    .stat-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+
+    .progress-step .step-label {
+        font-size: 0.65rem;
+    }
+}
